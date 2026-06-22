@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nurul Asyiqin · floral CV</title>
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Roboto, system-ui, -apple-system, sans-serif;
+    }
+
+    body {
+      background: linear-gradient(145deg, #f9f3ee 0%, #f0ebe4 100%);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem 1rem;
+    }
+
+    /* main card – soft floral atmosphere */
+    .cv-card {
+      max-width: 1100px;
+      width: 100%;
+      background: rgba(255, 250, 245, 0.7);
+      backdrop-filter: blur(2px);
+      border-radius: 48px 48px 32px 32px;
+      box-shadow: 0 20px 40px rgba(140, 100, 80, 0.15),
+                  0 8px 16px rgba(0, 0, 0, 0.03),
+                  inset 0 1px 0 rgba(255, 245, 235, 0.6);
+      padding: 2.2rem 2.5rem;
+      border: 1px solid rgba(235, 210, 195, 0.3);
+      transition: all 0.3s ease;
+      animation: floatGlow 6s infinite alternate ease-in-out;
+    }
+
+    @keyframes floatGlow {
+      0% { box-shadow: 0 20px 40px rgba(160, 120, 100, 0.1), 0 0 0 0 #e8d5c4; }
+      100% { box-shadow: 0 30px 60px rgba(160, 120, 100, 0.18), 0 0 0 4px rgba(235, 200, 180, 0.2); }
+    }
+
+    /* decorative floral elements (pseudo) */
+    .cv-card::before {
+      content: "✿ ✿ ✿";
+      position: absolute;
+      top: -8px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 1.6rem;
+      letter-spacing: 8px;
+      color: #dabfae;
+      opacity: 0.4;
+      background: #f9f3ee;
+      padding: 0 1rem;
+      border-radius: 60px;
+    }
+
+    .cv-card {
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* subtle botanical pattern overlay */
+    .cv-card::after {
+      content: "";
+      position: absolute;
+      top: -30%;
+      right: -10%;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle at 70% 30%, rgba(215, 185, 165, 0.08) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* all content above overlay */
+    .cv-card > * {
+      position: relative;
+      z-index: 2;
+    }
+
+    /* header / name section */
+    .header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: flex-start;
+      border-bottom: 2px dashed #decbc0;
+      padding-bottom: 1.5rem;
+      margin-bottom: 1.8rem;
+    }
+
+    .name-title h1 {
+      font-size: 2.8rem;
+      font-weight: 500;
+      letter-spacing: 1px;
+      color: #4a3a30;
+      margin-bottom: 0.2rem;
+      animation: fadeSlide 0.8s ease-out;
+    }
+
+    .name-title h1 i {
+      color: #c9a48b;
+      font-size: 2.2rem;
+      margin-right: 8px;
+    }
+
+    .name-title .subhead {
+      font-size: 1rem;
+      color: #7f6b5d;
+      background: #ede3db;
+      display: inline-block;
+      padding: 0.25rem 1rem;
+      border-radius: 40px;
+      letter-spacing: 0.3px;
+      font-weight: 400;
+    }
+
+    .contact-info {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.2rem 1.8rem;
+      background: rgba(235, 220, 210, 0.3);
+      padding: 0.8rem 1.5rem;
+      border-radius: 60px;
+      backdrop-filter: blur(2px);
+      margin-top: 0.4rem;
+      border: 1px solid rgba(215, 185, 165, 0.2);
+    }
+
+    .contact-info a, .contact-info span {
+      color: #4d3b30;
+      text-decoration: none;
+      font-size: 0.95rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: 0.2s;
+      font-weight: 400;
+    }
+
+    .contact-info a:hover {
+      color: #8b6b58;
+      transform: scale(1.02) translateY(-1px);
+    }
+
+    .contact-info i {
+      color: #b48d78;
+      width: 1.2rem;
+    }
+
+    /* grid layout: 2 columns */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      gap: 2rem 2.5rem;
+      margin-top: 0.5rem;
+    }
+
+    @media (max-width: 780px) {
+      .cv-card { padding: 1.8rem; }
+      .grid-2 { grid-template-columns: 1fr; gap: 1.5rem; }
+      .header { flex-direction: column; gap: 1rem; }
+      .contact-info { width: 100%; justify-content: center; }
+      .name-title h1 { font-size: 2.2rem; }
+    }
+
+    /* sections */
+    .section {
+      margin-bottom: 1.8rem;
+    }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #3f332b;
+      letter-spacing: 0.3px;
+      border-left: 6px solid #dbb9a7;
+      padding-left: 14px;
+      margin-bottom: 1rem;
+    }
+
+    .section-title i {
+      color: #b28a75;
+      font-size: 1.1rem;
+      width: 1.6rem;
+    }
+
+    /* experience / education cards */
+    .exp-item, .edu-item, .activity-item {
+      background: rgba(250, 242, 236, 0.5);
+      backdrop-filter: blur(2px);
+      padding: 0.9rem 1.2rem;
+      border-radius: 28px;
+      margin-bottom: 1rem;
+      border: 1px solid rgba(215, 190, 175, 0.15);
+      transition: 0.25s ease;
+      box-shadow: 0 4px 8px rgba(150, 120, 100, 0.02);
+      animation: fadeUp 0.6s ease backwards;
+    }
+
+    .exp-item:hover, .edu-item:hover, .activity-item:hover {
+      background: rgba(250, 240, 232, 0.7);
+      border-color: #dcc2b2;
+      transform: translateY(-2px);
+      box-shadow: 0 12px 24px rgba(140, 110, 90, 0.06);
+    }
+
+    .exp-item .exp-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 0.3rem;
+    }
+
+    .exp-item .exp-title {
+      font-weight: 600;
+      color: #3b2e26;
+      font-size: 1.05rem;
+    }
+
+    .exp-item .exp-company {
+      font-weight: 500;
+      color: #6e5b4e;
+    }
+
+    .exp-item .exp-date {
+      font-size: 0.8rem;
+      background: #e9dbd1;
+      padding: 0.2rem 0.9rem;
+      border-radius: 40px;
+      color: #4d3a2e;
+      font-weight: 500;
+    }
+
+    .exp-item ul {
+      margin-top: 0.5rem;
+      padding-left: 1.2rem;
+      list-style: none;
+    }
+
+    .exp-item li {
+      font-size: 0.93rem;
+      line-height: 1.5;
+      color: #3f332b;
+      margin-bottom: 0.25rem;
+      display: flex;
+      gap: 8px;
+    }
+
+    .exp-item li::before {
+      content: "🌸";
+      font-size: 0.8rem;
+      color: #c9a086;
+      display: inline-block;
+      width: 1.2rem;
+    }
+
+    /* education */
+    .edu-item {
+      display: flex;
+      flex-direction: column;
+    }
+    .edu-item .edu-title {
+      font-weight: 600;
+      color: #2f251f;
+      font-size: 1rem;
+    }
+    .edu-item .edu-school {
+      font-weight: 400;
+      color: #6a5547;
+      font-size: 0.95rem;
+    }
+    .edu-item .edu-year {
+      font-size: 0.8rem;
+      background: #e4d4ca;
+      padding: 0.1rem 0.9rem;
+      border-radius: 30px;
+      display: inline-block;
+      align-self: flex-start;
+      margin-top: 0.2rem;
+      color: #3f2e24;
+    }
+
+    /* activities & skills */
+    .activity-item {
+      padding: 0.6rem 1.2rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 0.2rem 0.8rem;
+    }
+
+    .activity-item .act-name {
+      font-weight: 500;
+      color: #2c221c;
+    }
+    .activity-item .act-detail {
+      color: #5f4b3d;
+      font-size: 0.9rem;
+    }
+    .activity-item .act-badge {
+      background: #dcc9bc;
+      padding: 0 0.8rem;
+      border-radius: 30px;
+      font-size: 0.7rem;
+      font-weight: 500;
+      color: #372a21;
+    }
+
+    .skillset {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 0.8rem;
+      margin-top: 0.3rem;
+    }
+
+    .skill-tag {
+      background: rgba(215, 190, 175, 0.25);
+      padding: 0.3rem 1.2rem;
+      border-radius: 40px;
+      font-size: 0.85rem;
+      color: #3d2e24;
+      border: 1px solid rgba(190, 160, 140, 0.2);
+      backdrop-filter: blur(4px);
+      transition: 0.2s;
+      font-weight: 400;
+      letter-spacing: 0.2px;
+    }
+    .skill-tag i {
+      margin-right: 5px;
+      color: #b2846b;
+    }
+
+    .language-item {
+      display: inline-block;
+      background: #e5d6cb;
+      padding: 0.2rem 1.2rem;
+      border-radius: 60px;
+      margin-right: 0.5rem;
+      font-size: 0.9rem;
+    }
+
+    .ref-item {
+      background: rgba(240, 225, 215, 0.3);
+      padding: 0.4rem 1rem;
+      border-radius: 40px;
+      display: inline-block;
+      margin-right: 0.8rem;
+      margin-bottom: 0.4rem;
+      font-size: 0.9rem;
+      border: 1px solid #e2cdbf;
+    }
+    .ref-item i {
+      color: #a77b65;
+      width: 1.4rem;
+    }
+
+    .reference-block {
+      margin-top: 0.5rem;
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    /* animations */
+    @keyframes fadeUp {
+      0% { opacity: 0; transform: translateY(18px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeSlide {
+      0% { opacity: 0; transform: translateX(-10px); }
+      100% { opacity: 1; transform: translateX(0); }
+    }
+
+    .exp-item:nth-child(1) { animation-delay: 0.02s; }
+    .exp-item:nth-child(2) { animation-delay: 0.08s; }
+    .exp-item:nth-child(3) { animation-delay: 0.14s; }
+    .exp-item:nth-child(4) { animation-delay: 0.2s; }
+    .edu-item:nth-child(1) { animation-delay: 0.05s; }
+    .edu-item:nth-child(2) { animation-delay: 0.1s; }
+    .edu-item:nth-child(3) { animation-delay: 0.15s; }
+
+    /* special tiny flowers */
+    .flower-icon {
+      color: #d4b09b;
+      margin-right: 4px;
+    }
+
+    hr {
+      border: 0;
+      height: 1px;
+      background: linear-gradient(to right, #decbc0, transparent);
+      margin: 0.8rem 0;
+    }
+
+    /* extra polish */
+    .section-sub {
+      font-size: 0.95rem;
+      font-weight: 400;
+      color: #4f3e33;
+      margin-top: -0.3rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .badge-light {
+      background: #e2d2c6;
+      padding: 0.1rem 0.8rem;
+      border-radius: 40px;
+      font-size: 0.7rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="cv-card">
+    <!-- header: name + contact -->
+    <div class="header">
+      <div class="name-title">
+        <h1><i class="fas fa-leaf flower-icon"></i>Nurul Asyiqin</h1>
+        <div class="subhead"><i class="fas fa-graduation-cap" style="margin-right: 6px;"></i>Electronic Engineering (Electronic Systems)</div>
+      </div>
+      <div class="contact-info">
+        <a href="tel:+601162211476"><i class="fas fa-phone-alt"></i> +60 11 6221 1476</a>
+        <a href="mailto:syiqinrhmn07@gmail.com"><i class="fas fa-envelope"></i> syiqinrhmn07</a>
+        <span><i class="fas fa-map-pin"></i> Petaling Jaya, Selangor</span>
+      </div>
+    </div>
+
+    <!-- 2 columns -->
+    <div class="grid-2">
+      <!-- left: experience -->
+      <div>
+        <div class="section">
+          <div class="section-title"><i class="fas fa-briefcase"></i> Work Experience</div>
+
+          <div class="exp-item">
+            <div class="exp-header">
+              <span class="exp-title">Retail Associate</span>
+              <span class="exp-date">Aug 2024 – Sep 2024</span>
+            </div>
+            <div class="exp-company"><i class="fas fa-store" style="margin-right: 6px; color:#a77b65;"></i>MUJI Sdn Bhd · Mid Valley</div>
+            <ul>
+              <li>Welcoming customers with friendly demeanor, assisting with product location &amp; features.</li>
+              <li>Actively promoting products to achieve sales targets.</li>
+              <li>Maintaining cleanliness, organizing shelves, informing supervisor about shortages.</li>
+            </ul>
+          </div>
+
+          <div class="exp-item">
+            <div class="exp-header">
+              <span class="exp-title">Internship</span>
+              <span class="exp-date">Jan 2024 – Jun 2024</span>
+            </div>
+            <div class="exp-company"><i class="fas fa-oil-can" style="margin-right: 6px; color:#a77b65;"></i>Reliant Oilfield Sdn Bhd</div>
+            <ul>
+              <li>Strategic sourcing via portal, social media, referrals.</li>
+              <li>Initial screenings &amp; phone interviews for candidate suitability.</li>
+              <li>Maintained candidate records, provided updates throughout recruitment.</li>
+            </ul>
+          </div>
+
+          <div class="exp-item">
+            <div class="exp-header">
+              <span class="exp-title">Retail Associate</span>
+              <span class="exp-date">Jul 2023 – Aug 2023</span>
+            </div>
+            <div class="exp-company"><i class="fas fa-tools" style="margin-right: 6px; color:#a77b65;"></i>MR. DIY Sdn Bhd</div>
+            <ul>
+              <li>Greeted customers, answered questions, assisted with shopping.</li>
+              <li>Promoted sales via upselling, cross-selling, and special offers.</li>
+              <li>Operated cash registers, processed payments, verified expiration dates.</li>
+            </ul>
+          </div>
+
+          <div class="exp-item">
+            <div class="exp-header">
+              <span class="exp-title">Warehouse Assistant</span>
+              <span class="exp-date">Jul 2022 – Aug 2022</span>
+            </div>
+            <div class="exp-company"><i class="fas fa-box" style="margin-right: 6px; color:#a77b65;"></i>Shopee Warehouse · Shah Alam</div>
+            <ul>
+              <li>Separated parcels according to state, scanned to update database.</li>
+              <li>Assisted customers in sales area, stock counting, labelling &amp; tagging.</li>
+              <li>Cashiering, reconciled receipts, maintained workspace safety.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- extra-curricular -->
+        <div class="section">
+          <div class="section-title"><i class="fas fa-award"></i> Extra-Curricular</div>
+          <div class="activity-item"><span class="act-name">FESKEW</span><span class="act-detail">· Festival Kebudayaan &amp; Warisan, Kota Bharu (2023) – crew</span></div>
+          <div class="activity-item"><span class="act-name">Pull The Rope</span><span class="act-detail">· between department (2022) – <span class="act-badge">2nd place</span></span></div>
+          <div class="activity-item"><span class="act-name">President of Librarian</span><span class="act-detail">· SMK Taman Dato' Harun (2020)</span></div>
+          <div class="activity-item"><span class="act-name">Co-President Police Cadet</span><span class="act-detail">· achieved Sergeant rank (2020)</span></div>
+          <div class="activity-item"><span class="act-name">Marching competition</span><span class="act-detail">· district level (2018) – <span class="act-badge">3rd place</span></span></div>
+        </div>
+      </div>
+
+      <!-- right: education, skills, ref -->
+      <div>
+        <div class="section">
+          <div class="section-title"><i class="fas fa-graduation-cap"></i> Education</div>
+          <div class="edu-item">
+            <span class="edu-title">Bachelor of Technology in Electronic Engineering (Electronic Systems) with Honour</span>
+            <span class="edu-school">University Malaysia Perlis</span>
+            <span class="edu-year">2024 – Present</span>
+          </div>
+          <div class="edu-item">
+            <span class="edu-title">Diploma in Electrical Computer Engineering</span>
+            <span class="edu-school">Polytechnic Seberang Perai, Pulau Pinang</span>
+            <span class="edu-year">2021 – 2024</span>
+          </div>
+          <div class="edu-item">
+            <span class="edu-title">Sijil Pelajaran Malaysia (SPM)</span>
+            <span class="edu-school">SMK Taman Dato' Harun, Petaling Jaya</span>
+            <span class="edu-year">2020</span>
+          </div>
+        </div>
+
+        <!-- skills & languages -->
+        <div class="section">
+          <div class="section-title"><i class="fas fa-code"></i> Skills &amp; Expertise</div>
+          <div class="skillset">
+            <span class="skill-tag"><i class="fab fa-microsoft"></i> Word, Excel, PowerPoint</span>
+            <span class="skill-tag"><i class="fas fa-drafting-compass"></i> Autodesk AutoCAD (basic)</span>
+            <span class="skill-tag"><i class="fas fa-comments"></i> Communication</span>
+            <span class="skill-tag"><i class="fas fa-tasks"></i> Multitasking</span>
+            <span class="skill-tag"><i class="fas fa-rocket"></i> Fast Learning</span>
+            <span class="skill-tag"><i class="fas fa-clock"></i> Time Management</span>
+          </div>
+          <div style="margin-top: 1rem;">
+            <span class="language-item"><i class="fas fa-language"></i> Malay · Fluent</span>
+            <span class="language-item"><i class="fas fa-language"></i> English · Intermediate</span>
+          </div>
+        </div>
+
+        <!-- references -->
+        <div class="section">
+          <div class="section-title"><i class="fas fa-address-card"></i> References</div>
+          <div class="reference-block">
+            <div class="ref-item"><i class="fas fa-user-tie"></i> Mrs. Liang Yuan Shin</div>
+            <div class="ref-item"><i class="fas fa-phone"></i> +6012 558 7478</div>
+            <div class="ref-item"><i class="fas fa-envelope"></i> liangyuanshin@psp.edu.my</div>
+            <div style="width:100%; height:6px;"></div>
+            <div class="ref-item"><i class="fas fa-user-tie"></i> Yong Pui Yan</div>
+            <div class="ref-item"><i class="fas fa-phone"></i> +6016 683 7658</div>
+            <div class="ref-item"><i class="fas fa-store"></i> Supervisor · Pasaraya MU</div>
+          </div>
+        </div>
+
+        <!-- subtle extra -->
+        <div style="margin-top: 1.2rem; font-size:0.8rem; color:#9b8476; display: flex; gap: 12px; flex-wrap: wrap; border-top: 1px solid #e1cfc2; padding-top: 0.8rem;">
+          <span><i class="fas fa-certificate" style="color:#b48a74;"></i> 2020 SPM · SMK Taman Dato' Harun</span>
+          <span><i class="fas fa-trophy" style="color:#b48a74;"></i> Police Cadet Sergeant</span>
+        </div>
+      </div>
+    </div>
+    <!-- tiny footer floral note -->
+    <div style="margin-top: 1.5rem; text-align: right; font-size: 0.75rem; color:#b8a093; letter-spacing: 1px; border-top: 1px dashed #decbc0; padding-top: 1rem;">
+      <i class="fas fa-seedling" style="margin-right: 6px;"></i> florets &amp; petals · always in bloom
+    </div>
+  </div>
+</body>
+</html>
